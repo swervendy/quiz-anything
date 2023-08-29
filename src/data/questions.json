@@ -1,92 +1,92 @@
 [
   {
-    "question": "What planet is Luke Skywalker from?",
-    "answer": "Tatooine",
+    "question": "What is the main source of energy for plants?",
+    "answer": "Sunlight",
     "wrongAnswers": [
-      "Hoth",
-      "Jakku",
-      "Alderaan"
+      "Water",
+      "Carbon dioxide",
+      "Fertilizer"
     ]
   },
   {
-    "question": "Who is Han Solo's best friend and copilot?",
-    "answer": "Chewbacca",
-    "wrongAnswers": [
-      "R2-D2",
-      "C-3PO",
-      "BB-8"
-    ]
-  },
-  {
-    "question": "What species is Yoda?",
-    "answer": "A Jedi Master of the species 'Unknown' ",
-    "wrongAnswers": [
-      "Ewok",
-      "Wookiee",
-      "Jawa"
-    ]
-  },
-  {
-    "question": "Who killed Jabba the Hutt?",
-    "answer": "Princess Leia",
-    "wrongAnswers": [
-      "Luke Skywalker",
-      "Han Solo",
-      "Darth Vader"
-    ]
-  },
-  {
-    "question": "Who is Darth Vader's master?",
-    "answer": "Emperor Palpatine",
-    "wrongAnswers": [
-      "Count Dooku",
-      "General Grievous",
-      "Kylo Ren"
-    ]
-  },
-  {
-    "question": "What is the name of Boba Fett's ship?",
-    "answer": "Slave I",
-    "wrongAnswers": [
-      "Ebon Hawk",
-      "Millennium Falcon",
-      "TIE Fighter"
-    ]
-  },
-  {
-    "question": "What color is Mace Windu's lightsaber?",
+    "question": "Which of the following is not a primary color?",
     "answer": "Purple",
     "wrongAnswers": [
+      "Red",
       "Blue",
-      "Green",
-      "Red"
+      "Yellow"
     ]
   },
   {
-    "question": "What is the name of the furry creatures on Endor?",
-    "answer": "Ewoks",
+    "question": "What is the process of removing weeds from agricultural fields called?",
+    "answer": "Weeding",
     "wrongAnswers": [
-      "Womp rats",
-      "Tauntauns",
-      "Banthas"
+      "Watering",
+      "Fertilizing",
+      "Harvesting"
     ]
   },
   {
-    "question": "Which planet has the Death Star destroyed?",
-    "answer": "Alderaan",
+    "question": "Which of the following is not a root vegetable?",
+    "answer": "Tomato",
     "wrongAnswers": [
-      "Dagobah",
-      "Bespin",
-      "Yavin 4"
+      "Carrot",
+      "Potato",
+      "Radish"
     ]
   },
   {
-    "question": "Who trained Obi-Wan Kenobi?",
-    "answer": "Qui-Gon Jinn",
+    "question": "What is the most common breed of dairy cattle?",
+    "answer": "Holstein",
     "wrongAnswers": [
-      "Darth Maul",
-      "Dooku",
-      "Palpatine"
+      "Jersey",
+      "Guernsey",
+      "Brown Swiss"
+    ]
+  },
+  {
+    "question": "Which of the following is not a greenhouse gas?",
+    "answer": "Nitrogen",
+    "wrongAnswers": [
+      "Carbon dioxide",
+      "Methane",
+      "Ozone"
+    ]
+  },
+  {
+    "question": "What is the primary function of the stamen in a flower?",
+    "answer": "Production of pollen",
+    "wrongAnswers": [
+      "Protection of flower",
+      "Photosynthesis",
+      "Pollination"
+    ]
+  },
+  {
+    "question": "Which of the following is a perennial plant?",
+    "answer": "Rose",
+    "wrongAnswers": [
+      "Sunflower",
+      "Marigold",
+      "Pansy"
+    ]
+  },
+  {
+    "question": "What is the process of turning milk into cheese called?",
+    "answer": "Fermentation",
+    "wrongAnswers": [
+      "Pasteurization",
+      "Homogenization",
+      "Condensation"
+    ]
+  },
+  {
+    "question": "Which of the following is not a type of soil?",
+    "answer": "Algae",
+    "wrongAnswers": [
+      "Clay",
+      "Silt",
+      "Sand"
     ]
   }
 ]

@@ -1,9 +1,6 @@
 import { useState } from 'react';
-
 import { shuffleArray } from '@/lib/util';
-
 import ButtonAnswer from '@/components/ButtonAnswer';
-
 import triviaQuestions from '@/data/questions.json';
 
 export default function Home({ questions }) {
@@ -15,7 +12,7 @@ export default function Home({ questions }) {
   const question = questions[questionIndex];
 
   function startOver() {
-    setGameStatus('playing')
+    setGameStatus('playing');
     setScore(0);
     setQuestionIndex(0);
   }
@@ -37,39 +34,34 @@ export default function Home({ questions }) {
         {gameStatus === 'playing' && (
           <div className="w-full">
             <h2 className="text-3xl text-center font-bold mb-4">Q: { question.question }</h2>
-
             <h3 className="text-xl text-center font-bold mb-12">Score: { score } / { totalQuestions }</h3>
-
-            <ul className="grid grid-cols-2	w-full gap-4">
-              { question.answers.map(answer => {
+            <ul className="grid grid-cols-2 w-full gap-4">
+              {question.answers.map(answer => {
                 function handleOnClick(e) {
                   e.preventDefault();
-
-                  if ( answer === question.answer ) {
+                  if (answer === question.answer) {
                     setScore(prev => prev + 1);
                   }
-
-                  if ( questionIndex + 1 === questions.length ) {
+                  if (questionIndex + 1 === questions.length) {
                     setGameStatus('finished');
                   } else {
                     setQuestionIndex(prev => prev + 1);
                   }
                 }
-
                 return (
                   <li key={answer}>
                     <ButtonAnswer onClick={handleOnClick}>
                       { answer }
                     </ButtonAnswer>
                   </li>
-                )
-              }) }
+                );
+              })}
             </ul>
           </div>
         )}
       </div>
     </main>
-  )
+  );
 }
 
 export async function getServerSideProps() {
@@ -80,5 +72,5 @@ export async function getServerSideProps() {
         answers: shuffleArray([q.answer, ...q.wrongAnswers])
       }))
     }
-  }
+  };
 }

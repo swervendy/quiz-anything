@@ -1,5 +1,5 @@
 require('dotenv').config({
-  path: './.env.local'
+  path: '../.env.local'
 });
 const fs = require('fs').promises;
 const { Configuration, OpenAIApi } = require("openai");
@@ -16,13 +16,15 @@ const shape = [{
 }];
 
 (async function run() {
+  // Retrieve the user's topic choice from command-line arguments
+  const userTopic = process.argv[2] || 'default topic'; // Default to 'default topic' if no topic is provided
 
   const completion = await openai.createChatCompletion({
     model: "gpt-3.5-turbo",
     messages: [{
       role: "user", 
       content: `
-        generate 10 trivia questions for Star Wars with answers. include wrong answers
+        generate 10 trivia questions about ${userTopic}. include wrong answers
         format the response as JSON in the shape of: ${JSON.stringify(shape)}
       `
     }],
@@ -30,5 +32,5 @@ const shape = [{
 
   const questions = JSON.parse(completion.data.choices[0].message.content)
 
-  await fs.writeFile('./src/data/questions.json', JSON.stringify(questions, null, 2))
+  await fs.writeFile('./src/data/questions.json', JSON.stringify(questions, null, 2));
 })();
