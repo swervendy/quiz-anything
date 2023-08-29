@@ -14,3 +14,4 @@ Demo for tutorial [AI-Generated Trivia App with ChatGPT & the OpenAI SDK](https:
 
 ✉️ [Sign Up for My Newsletter](https://colbyfayock.com/newsletter)
 # my-trivia
+# my-trivia
