@@ -1,92 +1,92 @@
 [
   {
-    "question": "Which brand is known for creating the legendary LS50 speakers?",
-    "answer": "KEF",
+    "question": "What is the capital of Israel?",
+    "answer": "Jerusalem",
     "wrongAnswers": [
-      "Bose",
-      "Sony",
-      "JBL"
+      "Tel Aviv",
+      "Haifa",
+      "Eilat"
     ]
   },
   {
-    "question": "Which company is famous for their Monitor Audio Silver Series speakers?",
-    "answer": "Monitor Audio",
+    "question": "Which language is spoken in Israel?",
+    "answer": "Hebrew",
     "wrongAnswers": [
-      "Harman Kardon",
-      "Denon",
-      "Yamaha"
+      "Arabic",
+      "English",
+      "Russian"
     ]
   },
   {
-    "question": "Who is the manufacturer of the popular Klipschorn speakers?",
-    "answer": "Klipsch",
+    "question": "What is the official currency of Israel?",
+    "answer": "Israeli Shekel",
     "wrongAnswers": [
-      "Panasonic",
-      "LG",
-      "Samsung"
+      "US Dollar",
+      "Euro",
+      "Japanese Yen"
     ]
   },
   {
-    "question": "Which brand produces the highly regarded Sonus Faber speakers?",
-    "answer": "Sonus Faber",
+    "question": "Which sea is located to the west of Israel?",
+    "answer": "Mediterranean Sea",
     "wrongAnswers": [
-      "Polk Audio",
-      "Pioneer",
-      "Harman Kardon"
+      "Red Sea",
+      "Dead Sea",
+      "Black Sea"
     ]
   },
   {
-    "question": "Which company is known for their high-end Bowers & Wilkins speakers?",
-    "answer": "Bowers & Wilkins",
+    "question": "In which year was the State of Israel established?",
+    "answer": "1948",
     "wrongAnswers": [
-      "HifiMan",
-      "Beats",
-      "Bang & Olufsen"
+      "1917",
+      "1956",
+      "1967"
     ]
   },
   {
-    "question": "Who is the manufacturer of the renowned Focal Utopia speakers?",
-    "answer": "Focal",
+    "question": "What is the highest mountain in Israel?",
+    "answer": "Mount Hermon",
     "wrongAnswers": [
-      "Jabra",
-      "Shure",
-      "Sennheiser"
+      "Mount Masada",
+      "Mount Carmel",
+      "Mount Bental"
     ]
   },
   {
-    "question": "Which brand is famous for their MartinLogan electrostatic speakers?",
-    "answer": "MartinLogan",
+    "question": "Which religious sites are located in Jerusalem?",
+    "answer": "Western Wall, Church of the Holy Sepulchre, Dome of the Rock",
     "wrongAnswers": [
-      "Philips",
-      "Panasonic",
-      "Harman Kardon"
+      "Wailing Wall, Great Synagogue, Al-Aqsa Mosque",
+      "Western Wall, Nativity Church, Church of the Holy Sepulchre",
+      "Western Wall, Al-Aqsa Mosque, Church of the Nativity"
     ]
   },
   {
-    "question": "Who is the manufacturer of the popular Paradigm Prestige speakers?",
-    "answer": "Paradigm",
+    "question": "What is the national flower of Israel?",
+    "answer": "Anemone",
     "wrongAnswers": [
-      "Sony",
-      "LG",
-      "Samsung"
+      "Tulip",
+      "Roses",
+      "Sunflower"
     ]
   },
   {
-    "question": "Which company is known for producing the high-end Wilson Audio speakers?",
-    "answer": "Wilson Audio",
+    "question": "Which Israeli city is known for its technology industry?",
+    "answer": "Tel Aviv",
     "wrongAnswers": [
-      "Bose",
-      "Sonos",
-      "JBL"
+      "Jerusalem",
+      "Haifa",
+      "Beersheba"
     ]
   },
   {
-    "question": "Who is the manufacturer of the renowned Dynaudio Contour speakers?",
-    "answer": "Dynaudio",
+    "question": "Which Israeli scientist won the Nobel Prize in Chemistry in 2004?",
+    "answer": "Aaron Ciechanover",
     "wrongAnswers": [
-      "Harman Kardon",
-      "Denon",
-      "Yamaha"
+      "Shimon Peres",
+      "Ehud Barak",
+      "Yitzhak Rabin"
     ]
   }
 ]

@@ -1,9 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { v4 as uuidv4 } from 'uuid';
 
-function ChooseTopic() {
+function Index() {
   const [topic, setTopic] = useState('');
   const router = useRouter();
+  const [userUUID, setUserUUID] = useState('');
+
+  useEffect(() => {
+    // Check if the user has a UUID stored in local storage
+    const storedUUID = localStorage.getItem('userUUID');
+
+    if (storedUUID) {
+      setUserUUID(storedUUID);
+    } else {
+      // Generate a new UUID for the user
+      const newUUID = uuidv4();
+      localStorage.setItem('userUUID', newUUID);
+      setUserUUID(newUUID);
+    }
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -48,5 +64,4 @@ function ChooseTopic() {
   );
 }
 
-export default ChooseTopic;
-
+export default Index;
