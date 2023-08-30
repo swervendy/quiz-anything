@@ -1,92 +1,92 @@
 [
   {
-    "question": "What is the main source of energy for plants?",
-    "answer": "Sunlight",
+    "question": "Which brand is known for creating the legendary LS50 speakers?",
+    "answer": "KEF",
     "wrongAnswers": [
-      "Water",
-      "Carbon dioxide",
-      "Fertilizer"
+      "Bose",
+      "Sony",
+      "JBL"
     ]
   },
   {
-    "question": "Which of the following is not a primary color?",
-    "answer": "Purple",
+    "question": "Which company is famous for their Monitor Audio Silver Series speakers?",
+    "answer": "Monitor Audio",
     "wrongAnswers": [
-      "Red",
-      "Blue",
-      "Yellow"
+      "Harman Kardon",
+      "Denon",
+      "Yamaha"
     ]
   },
   {
-    "question": "What is the process of removing weeds from agricultural fields called?",
-    "answer": "Weeding",
+    "question": "Who is the manufacturer of the popular Klipschorn speakers?",
+    "answer": "Klipsch",
     "wrongAnswers": [
-      "Watering",
-      "Fertilizing",
-      "Harvesting"
+      "Panasonic",
+      "LG",
+      "Samsung"
     ]
   },
   {
-    "question": "Which of the following is not a root vegetable?",
-    "answer": "Tomato",
+    "question": "Which brand produces the highly regarded Sonus Faber speakers?",
+    "answer": "Sonus Faber",
     "wrongAnswers": [
-      "Carrot",
-      "Potato",
-      "Radish"
+      "Polk Audio",
+      "Pioneer",
+      "Harman Kardon"
     ]
   },
   {
-    "question": "What is the most common breed of dairy cattle?",
-    "answer": "Holstein",
+    "question": "Which company is known for their high-end Bowers & Wilkins speakers?",
+    "answer": "Bowers & Wilkins",
     "wrongAnswers": [
-      "Jersey",
-      "Guernsey",
-      "Brown Swiss"
+      "HifiMan",
+      "Beats",
+      "Bang & Olufsen"
     ]
   },
   {
-    "question": "Which of the following is not a greenhouse gas?",
-    "answer": "Nitrogen",
+    "question": "Who is the manufacturer of the renowned Focal Utopia speakers?",
+    "answer": "Focal",
     "wrongAnswers": [
-      "Carbon dioxide",
-      "Methane",
-      "Ozone"
+      "Jabra",
+      "Shure",
+      "Sennheiser"
     ]
   },
   {
-    "question": "What is the primary function of the stamen in a flower?",
-    "answer": "Production of pollen",
+    "question": "Which brand is famous for their MartinLogan electrostatic speakers?",
+    "answer": "MartinLogan",
     "wrongAnswers": [
-      "Protection of flower",
-      "Photosynthesis",
-      "Pollination"
+      "Philips",
+      "Panasonic",
+      "Harman Kardon"
     ]
   },
   {
-    "question": "Which of the following is a perennial plant?",
-    "answer": "Rose",
+    "question": "Who is the manufacturer of the popular Paradigm Prestige speakers?",
+    "answer": "Paradigm",
     "wrongAnswers": [
-      "Sunflower",
-      "Marigold",
-      "Pansy"
+      "Sony",
+      "LG",
+      "Samsung"
     ]
   },
   {
-    "question": "What is the process of turning milk into cheese called?",
-    "answer": "Fermentation",
+    "question": "Which company is known for producing the high-end Wilson Audio speakers?",
+    "answer": "Wilson Audio",
     "wrongAnswers": [
-      "Pasteurization",
-      "Homogenization",
-      "Condensation"
+      "Bose",
+      "Sonos",
+      "JBL"
     ]
   },
   {
-    "question": "Which of the following is not a type of soil?",
-    "answer": "Algae",
+    "question": "Who is the manufacturer of the renowned Dynaudio Contour speakers?",
+    "answer": "Dynaudio",
     "wrongAnswers": [
-      "Clay",
-      "Silt",
-      "Sand"
+      "Harman Kardon",
+      "Denon",
+      "Yamaha"
     ]
   }
 ]
