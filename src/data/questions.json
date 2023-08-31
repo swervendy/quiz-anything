@@ -1,92 +1,92 @@
 [
   {
-    "question": "What is the capital of Israel?",
-    "answer": "Jerusalem",
+    "question": "Which country produces the most tea in the world?",
+    "answer": "China",
     "wrongAnswers": [
-      "Tel Aviv",
-      "Haifa",
-      "Eilat"
+      "India",
+      "Japan",
+      "Kenya"
     ]
   },
   {
-    "question": "Which language is spoken in Israel?",
-    "answer": "Hebrew",
+    "question": "Which type of tea is known for its smoky flavor?",
+    "answer": "Lapsang Souchong",
     "wrongAnswers": [
-      "Arabic",
-      "English",
-      "Russian"
+      "Earl Grey",
+      "Darjeeling",
+      "Chamomile"
     ]
   },
   {
-    "question": "What is the official currency of Israel?",
-    "answer": "Israeli Shekel",
+    "question": "Which tea is traditionally used in Japanese tea ceremonies?",
+    "answer": "Matcha",
     "wrongAnswers": [
-      "US Dollar",
-      "Euro",
-      "Japanese Yen"
+      "Oolong",
+      "Jasmine",
+      "Peppermint"
     ]
   },
   {
-    "question": "Which sea is located to the west of Israel?",
-    "answer": "Mediterranean Sea",
+    "question": "Which tea is often referred to as the 'Champagne of Teas'?",
+    "answer": "Darjeeling",
     "wrongAnswers": [
-      "Red Sea",
-      "Dead Sea",
-      "Black Sea"
+      "Green tea",
+      "Rooibos",
+      "Hibiscus"
     ]
   },
   {
-    "question": "In which year was the State of Israel established?",
-    "answer": "1948",
+    "question": "Which tea is believed to have a calming effect and aid in sleep?",
+    "answer": "Chamomile",
     "wrongAnswers": [
-      "1917",
-      "1956",
-      "1967"
+      "Black tea",
+      "Pu-erh",
+      "White tea"
     ]
   },
   {
-    "question": "What is the highest mountain in Israel?",
-    "answer": "Mount Hermon",
+    "question": "What is the main ingredient in chai tea?",
+    "answer": "Black tea",
     "wrongAnswers": [
-      "Mount Masada",
-      "Mount Carmel",
-      "Mount Bental"
+      "Mint",
+      "Ginger",
+      "Lemon"
     ]
   },
   {
-    "question": "Which religious sites are located in Jerusalem?",
-    "answer": "Western Wall, Church of the Holy Sepulchre, Dome of the Rock",
+    "question": "Which tea is famous for its floral aroma and taste?",
+    "answer": "Jasmine tea",
     "wrongAnswers": [
-      "Wailing Wall, Great Synagogue, Al-Aqsa Mosque",
-      "Western Wall, Nativity Church, Church of the Holy Sepulchre",
-      "Western Wall, Al-Aqsa Mosque, Church of the Nativity"
+      "Peppermint",
+      "Hibiscus",
+      "Ginseng"
     ]
   },
   {
-    "question": "What is the national flower of Israel?",
-    "answer": "Anemone",
+    "question": "Which tea has the most caffeine content?",
+    "answer": "Yerba mate",
     "wrongAnswers": [
-      "Tulip",
-      "Roses",
-      "Sunflower"
+      "White tea",
+      "Herbal tea",
+      "Rooibos"
     ]
   },
   {
-    "question": "Which Israeli city is known for its technology industry?",
-    "answer": "Tel Aviv",
+    "question": "Which tea is known for its earthy and strong flavor?",
+    "answer": "Pu-erh tea",
     "wrongAnswers": [
-      "Jerusalem",
-      "Haifa",
-      "Beersheba"
+      "Chamomile",
+      "Oolong",
+      "Mint"
     ]
   },
   {
-    "question": "Which Israeli scientist won the Nobel Prize in Chemistry in 2004?",
-    "answer": "Aaron Ciechanover",
+    "question": "Which tea is commonly used as a base for iced tea?",
+    "answer": "Black tea",
     "wrongAnswers": [
-      "Shimon Peres",
-      "Ehud Barak",
-      "Yitzhak Rabin"
+      "Green tea",
+      "Rooibos",
+      "Peppermint"
     ]
   }
 ]

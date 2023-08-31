@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { v4 as uuidv4 } from 'uuid';
 
 function Index() {
   const [topic, setTopic] = useState('');
@@ -14,12 +13,32 @@ function Index() {
     if (storedUUID) {
       setUserUUID(storedUUID);
     } else {
-      // Generate a new UUID for the user
-      const newUUID = uuidv4();
-      localStorage.setItem('userUUID', newUUID);
-      setUserUUID(newUUID);
+      // If not, store a new UUID in MongoDB and then in local storage
+      storeUUIDInDB();
     }
   }, []);
+
+  const storeUUIDInDB = async () => {
+    try {
+      const response = await fetch('/api/storeUUID', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      const data = await response.json();
+
+      if (data.uuid) {
+        localStorage.setItem('userUUID', data.uuid);
+        setUserUUID(data.uuid);
+      } else {
+        console.error('Failed to store UUID in MongoDB.');
+      }
+    } catch (error) {
+      console.error('Error storing UUID:', error);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
