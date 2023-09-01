@@ -1,22 +1,33 @@
-Quiz Anything
+# Quiz Anything
+
 A dynamic quiz application that allows users to generate quizzes on any topic of their choice. Powered by OpenAI's GPT-3.5-turbo model and built with Next.js and MongoDB.
 
-Features
-Dynamic Quiz Generation: Users can input any topic, and the system will generate a set of trivia questions related to that topic.
-Persistent User Sessions: Utilizes UUIDs to maintain user sessions and track quiz progress.
-MongoDB Integration: Efficiently stores and retrieves quiz questions, user sessions, and topics.
-Responsive Design: Adapts to various screen sizes for an optimal user experience.
-Getting Started
-Prerequisites
-Node.js
-MongoDB
-OpenAI API key
-Installation
-Clone the repository:
+## Features
 
-bash
-Copy code
-git clone https://github.com/swervendy/quiz-anything.git
+- **Dynamic Quiz Generation**: Users can input any topic, and the system will generate a set of trivia questions related to that topic.
+- **Persistent User Sessions**: Utilizes UUIDs to maintain user sessions and track quiz progress.
+- **MongoDB Integration**: Efficiently stores and retrieves quiz questions, user sessions, and topics.
+- **Responsive Design**: Adapts to various screen sizes for an optimal user experience.
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js
+- MongoDB
+- OpenAI API key
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/swervendy/quiz-anything.git
+
+2. Copy code:
+   ```bash
+    git clone https://github.com/swervendy/quiz-anything.git
+
+
 Navigate to the project directory:
 
 bash
