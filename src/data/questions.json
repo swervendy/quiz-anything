@@ -1,92 +1,92 @@
 [
   {
-    "question": "Which country produces the most tea in the world?",
-    "answer": "China",
+    "question": "What is Chance the Rapper's real name?",
+    "answer": "Chancelor Jonathan Bennett",
     "wrongAnswers": [
-      "India",
-      "Japan",
-      "Kenya"
+      "Kendrick Lamar",
+      "Shawn Carter",
+      "Donald Glover"
     ]
   },
   {
-    "question": "Which type of tea is known for its smoky flavor?",
-    "answer": "Lapsang Souchong",
+    "question": "In which city was Chance the Rapper born?",
+    "answer": "Chicago",
     "wrongAnswers": [
-      "Earl Grey",
-      "Darjeeling",
-      "Chamomile"
+      "Houston",
+      "Los Angeles",
+      "New York"
     ]
   },
   {
-    "question": "Which tea is traditionally used in Japanese tea ceremonies?",
-    "answer": "Matcha",
+    "question": "What was Chance the Rapper's debut mixtape called?",
+    "answer": "10 Day",
     "wrongAnswers": [
-      "Oolong",
-      "Jasmine",
-      "Peppermint"
+      "Acid Rap",
+      "Coloring Book",
+      "The Big Day"
     ]
   },
   {
-    "question": "Which tea is often referred to as the 'Champagne of Teas'?",
-    "answer": "Darjeeling",
+    "question": "Which famous rapper collaborated with Chance on the song 'No Problem'?",
+    "answer": "Lil Wayne",
     "wrongAnswers": [
-      "Green tea",
-      "Rooibos",
-      "Hibiscus"
+      "Travis Scott",
+      "Kanye West",
+      "Drake"
     ]
   },
   {
-    "question": "Which tea is believed to have a calming effect and aid in sleep?",
-    "answer": "Chamomile",
+    "question": "For which song did Chance the Rapper win the Grammy Award for Best Rap Performance?",
+    "answer": "No Problem",
     "wrongAnswers": [
-      "Black tea",
-      "Pu-erh",
-      "White tea"
+      "Blessings",
+      "All We Got",
+      "Same Drugs"
     ]
   },
   {
-    "question": "What is the main ingredient in chai tea?",
-    "answer": "Black tea",
+    "question": "Which president's daughter did Chance the Rapper campaign for during the 2020 election?",
+    "answer": "Joe Biden",
     "wrongAnswers": [
-      "Mint",
-      "Ginger",
-      "Lemon"
+      "Donald Trump",
+      "Barack Obama",
+      "Hillary Clinton"
     ]
   },
   {
-    "question": "Which tea is famous for its floral aroma and taste?",
-    "answer": "Jasmine tea",
+    "question": "What is the title of Chance the Rapper's debut studio album?",
+    "answer": "The Big Day",
     "wrongAnswers": [
-      "Peppermint",
-      "Hibiscus",
-      "Ginseng"
+      "Coloring Book",
+      "Acid Rap",
+      "10 Day"
     ]
   },
   {
-    "question": "Which tea has the most caffeine content?",
-    "answer": "Yerba mate",
+    "question": "Which television show did Chance the Rapper host in 2019?",
+    "answer": "Saturday Night Live",
     "wrongAnswers": [
-      "White tea",
-      "Herbal tea",
-      "Rooibos"
+      "The Tonight Show Starring Jimmy Fallon",
+      "The Ellen DeGeneres Show",
+      "Late Night with Seth Meyers"
     ]
   },
   {
-    "question": "Which tea is known for its earthy and strong flavor?",
-    "answer": "Pu-erh tea",
+    "question": "Who is Chance the Rapper married to?",
+    "answer": "Kirsten Corley",
     "wrongAnswers": [
-      "Chamomile",
-      "Oolong",
-      "Mint"
+      "Rihanna",
+      "Beyoncé",
+      "Cardi B"
     ]
   },
   {
-    "question": "Which tea is commonly used as a base for iced tea?",
-    "answer": "Black tea",
+    "question": "Which film did Chance the Rapper make a cameo appearance in as a werewolf?",
+    "answer": "Slice",
     "wrongAnswers": [
-      "Green tea",
-      "Rooibos",
-      "Peppermint"
+      "La La Land",
+      "Get Out",
+      "Moonlight"
     ]
   }
 ]

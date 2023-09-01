@@ -7,13 +7,11 @@ function Index() {
   const [userUUID, setUserUUID] = useState('');
 
   useEffect(() => {
-    // Check if the user has a UUID stored in local storage
     const storedUUID = localStorage.getItem('userUUID');
 
     if (storedUUID) {
       setUserUUID(storedUUID);
     } else {
-      // If not, store a new UUID in MongoDB and then in local storage
       storeUUIDInDB();
     }
   }, []);
@@ -49,11 +47,11 @@ function Index() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ topic }),
+        body: JSON.stringify({ topic, uuid: userUUID }), // Include the UUID here
       });
 
       if (response.ok) {
-        router.push('/quiz'); // Redirect to the quiz page
+        router.push('/quiz');
       } else {
         console.error('Failed to generate questions.');
       }

@@ -1,7 +1,6 @@
 require('dotenv').config({
   path: '../.env.local'
 });
-const fs = require('fs').promises;
 const { Configuration, OpenAIApi } = require("openai");
 
 const configuration = new Configuration({
@@ -16,8 +15,7 @@ const shape = [{
 }];
 
 (async function run() {
-  // Retrieve the user's topic choice from command-line arguments
-  const userTopic = process.argv[2] || 'default topic'; // Default to 'default topic' if no topic is provided
+  const userTopic = process.argv[2] || 'default topic';
 
   const completion = await openai.createChatCompletion({
     model: "gpt-3.5-turbo",
@@ -30,7 +28,7 @@ const shape = [{
     }],
   });
 
-  const questions = JSON.parse(completion.data.choices[0].message.content)
+  const questions = JSON.parse(completion.data.choices[0].message.content);
 
-  await fs.writeFile('./src/data/questions.json', JSON.stringify(questions, null, 2));
+  console.log(JSON.stringify(questions, null, 2));
 })();
