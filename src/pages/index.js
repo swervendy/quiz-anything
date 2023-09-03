@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import openai from 'openai';
 
 function Index() {
   const [topic, setTopic] = useState('');

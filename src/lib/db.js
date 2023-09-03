@@ -7,11 +7,7 @@ export async function connectToDB() {
   if (!db) {
     try {
       if (!client) {
-        client = new MongoClient(process.env.MONGODB_URI, {
-          useNewUrlParser: true,
-          useUnifiedTopology: true,
-          poolSize: 10 // Adjust based on your needs
-        });
+        client = new MongoClient(process.env.MONGODB_URI);
         await client.connect();
       }
       db = client.db(process.env.MONGODB_DB);

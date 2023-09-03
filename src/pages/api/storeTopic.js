@@ -4,6 +4,11 @@ export default async (req, res) => {
   if (req.method === 'POST') {
     const { topic, uuid } = req.body;
 
+    // Basic input validation
+    if (!topic || !uuid) {
+      return res.status(400).json({ error: 'Topic and UUID are required.' });
+    }
+
     const db = await connectToDB();
     const topicsCollection = db.collection('topics');
 

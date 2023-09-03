@@ -5,7 +5,12 @@ export default async (req, res) => {
   if (req.method === 'POST') {
     const { topic, uuid } = req.body;
 
-    exec(`node scripts/generate-questions.js "${topic}"`, async (error, stdout, stderr) => {
+    // Basic input validation
+    if (!topic || !uuid) {
+      return res.status(400).json({ error: 'Topic and UUID are required.' });
+    }
+
+    exec(`node scripts/generate-questions.js \"${topic}\"`, async (error, stdout, stderr) => {
       if (error) {
         console.error(`exec error: ${error}`);
         return res.status(500).json({ error: 'Failed to generate questions.' });
