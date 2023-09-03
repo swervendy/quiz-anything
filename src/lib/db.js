@@ -1,11 +1,24 @@
 import { MongoClient } from 'mongodb';
 
 let client;
+let db;
 
 export async function connectToDB() {
-  if (!client) {
-    client = new MongoClient(process.env.MONGODB_URI);
-    await client.connect();
+  if (!db) {
+    try {
+      if (!client) {
+        client = new MongoClient(process.env.MONGODB_URI, {
+          useNewUrlParser: true,
+          useUnifiedTopology: true,
+          poolSize: 10 // Adjust based on your needs
+        });
+        await client.connect();
+      }
+      db = client.db(process.env.MONGODB_DB);
+    } catch (error) {
+      console.error("Could not connect to the database:", error);
+      throw new Error("Database connection failed");
+    }
   }
-  return client.db(process.env.MONGODB_DB);
+  return db;
 }
