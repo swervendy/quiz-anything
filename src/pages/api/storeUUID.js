@@ -6,7 +6,7 @@ export default async (req, res) => {
   const uuidsCollection = db.collection('uuids');
 
   const newUUID = uuidv4();
-  await uuidsCollection.insertOne({ uuid: newUUID });
+  await uuidsCollection.insertOne({ uuid: newUUID, createdAt: new Date() });
 
   res.status(200).json({ uuid: newUUID });
 };

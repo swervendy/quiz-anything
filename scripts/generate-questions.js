@@ -1,10 +1,10 @@
 require('dotenv').config();
-const { Configuration, OpenAIApi } = require("openai");
+const OpenAI = require("openai");
 
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY
 });
-const openai = new OpenAIApi(configuration);
 
 const shape = [{
   "question": "Who is Luke Skywalker's father?",
@@ -15,7 +15,7 @@ const shape = [{
 (async function run() {
   const userTopic = process.argv[2] || 'default topic';
 
-  const completion = await openai.createChatCompletion({
+  const completion = await openai.chat.completions.create({
     model: "gpt-3.5-turbo",
     messages: [{
       role: "user", 
@@ -26,7 +26,7 @@ const shape = [{
     }],
   });
 
-  const questions = JSON.parse(completion.data.choices[0].message.content);
+  const questions = JSON.parse(completion.choices[0].message.content);
 
   console.log(JSON.stringify(questions, null, 2));
 })();
