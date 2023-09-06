@@ -10,7 +10,7 @@ export default async (req, res) => {
       return res.status(400).json({ error: 'Topic and UUID are required.' });
     }
 
-    exec(`node scripts/generate-questions.js \"${topic}\"`, async (error, stdout, stderr) => {
+    exec(`node src/scripts/generate-questions.js \"${topic}\"`, async (error, stdout, stderr) => {
       if (error) {
         console.error(`exec error: ${error}`);
         return res.status(500).json({ error: 'Failed to generate questions.' });
