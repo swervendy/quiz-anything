@@ -1,6 +1,7 @@
-require('dotenv').config();
-const OpenAI = require("openai");
+import { config } from 'dotenv';
+import OpenAI from 'openai';
 
+config();
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
@@ -12,9 +13,7 @@ const shape = [{
   "wrongAnswers": ["Obi-Wan Kenobi", "Emperor Palpatine", "Yoda"]
 }];
 
-(async function run() {
-  const userTopic = process.argv[2] || 'default topic';
-
+export const generateTriviaQuestions = async (userTopic = 'default topic') => {
   const completion = await openai.chat.completions.create({
     model: "gpt-3.5-turbo",
     messages: [{
@@ -27,6 +26,13 @@ const shape = [{
   });
 
   const questions = JSON.parse(completion.choices[0].message.content);
+  return questions;
+};
 
-  console.log(JSON.stringify(questions, null, 2));
-})();
+if (require.main === module) {
+  (async () => {
+    const userTopic = process.argv[2];
+    const questions = await generateTriviaQuestions(userTopic);
+    console.log(JSON.stringify(questions, null, 2));
+  })();
+}

@@ -1,58 +1,42 @@
-import { exec } from 'child_process';
+/* eslint-disable import/no-anonymous-default-export */
 import { connectToDB } from '../../lib/db';
+import { generateTriviaQuestions } from '../../scripts/generate-questions';
 
 export default async (req, res) => {
-  if (req.method === 'POST') {
-    const { topic, uuid } = req.body;
+  if (req.method !== 'POST') {
+    return res.status(405).end(); // Method Not Allowed
+  }
 
-    // Basic input validation
-    if (!topic || !uuid) {
-      return res.status(400).json({ error: 'Topic and UUID are required.' });
-    }
+  const { topic, uuid } = req.body;
 
-    exec(`node src/scripts/generate-questions.js \"${topic}\"`, async (error, stdout, stderr) => {
-      if (error) {
-        console.error(`exec error: ${error}`);
-        return res.status(500).json({ error: 'Failed to generate questions.' });
-      }
-      console.log(`Output: ${stdout}`);
-      if (stderr) {
-        console.error(`stderr: ${stderr}`);
-      }
+  // Basic input validation
+  if (!topic || !uuid) {
+    return res.status(400).json({ error: 'Topic and UUID are required.' });
+  }
 
-      let questions;
-      try {
-        questions = JSON.parse(stdout);
-      } catch (parseError) {
-        console.error('Failed to parse questions:', parseError);
-        return res.status(500).json({ error: 'Failed to parse generated questions.' });
-      }
+  try {
+    const questions = await generateTriviaQuestions(topic);
 
-      const db = await connectToDB();
-      const questionsCollection = db.collection('questions');
-      const topicsCollection = db.collection('topics');
+    const db = await connectToDB();
+    const questionsCollection = db.collection('questions');
+    const topicsCollection = db.collection('topics');
 
-      try {
-        await questionsCollection.insertOne({ 
-          uuid, 
-          questions, 
-          createdAt: new Date(), 
-          topic 
-        });
-
-        await topicsCollection.insertOne({
-          uuid,
-          topicName: topic,
-          createdAt: new Date()
-        });
-
-        return res.status(200).json({ success: true });
-      } catch (dbError) {
-        console.error('Failed to store data in the database:', dbError);
-        return res.status(500).json({ error: 'Failed to store data in the database.' });
-      }
+    await questionsCollection.insertOne({ 
+      uuid, 
+      questions, 
+      createdAt: new Date(), 
+      topic 
     });
-  } else {
-    res.status(405).end(); // Method Not Allowed
+
+    await topicsCollection.insertOne({
+      uuid,
+      topicName: topic,
+      createdAt: new Date()
+    });
+
+    return res.status(200).json({ success: true });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ error: error.message });
   }
 };
