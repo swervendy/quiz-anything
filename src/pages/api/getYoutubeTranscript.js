@@ -1,15 +1,14 @@
 import { connectToDB } from '../../lib/db';
-import { v4 as uuidv4 } from 'uuid';
 import { YoutubeTranscript } from 'youtube-transcript';
 
 const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
 
 export default async (req, res) => {
   if (req.method === 'POST') {
-    const { youtubeUrl } = req.body;
+    const { youtubeUrl, uuid } = req.body;
 
-    if (!youtubeUrl) {
-      return res.status(400).json({ error: 'YouTube URL is required.' });
+    if (!youtubeUrl || !uuid) {
+      return res.status(400).json({ error: 'YouTube URL and UUID are required.' });
     }
 
     try {
@@ -24,7 +23,6 @@ export default async (req, res) => {
 
       const db = await connectToDB();
       const youtubeTranscriptsCollection = db.collection('youtubeTranscripts');
-      const uuid = uuidv4();
 
       // Insert into youtubeTranscripts collection
       await youtubeTranscriptsCollection.insertOne({
@@ -34,11 +32,11 @@ export default async (req, res) => {
         transcript
       });
 
-      return res.status(200).json({ uuid });
+      return res.status(200).json({ success: true });
     } catch (error) {
-        console.error(error);  // This will log the detailed error
-        return res.status(500).json({ error: 'Failed to fetch transcript.' });
-    }     
+      console.error(error);  // This will log the detailed error
+      return res.status(500).json({ error: 'Failed to fetch transcript.' });
+    }
   } else {
     return res.status(405).json({ error: 'Method not allowed.' });
   }
