@@ -3,6 +3,7 @@ import { generateYoutubeTriviaQuestions } from '../../scripts/generate-youtube-q
 
 export default async (req, res) => {
   if (req.method !== 'POST') {
+    console.error('Error: Invalid request method:', req.method);
     return res.status(405).end(); // Method Not Allowed
   }
 
@@ -10,6 +11,7 @@ export default async (req, res) => {
 
   // Basic input validation
   if (!uuid) {
+    console.error('Error: UUID is missing in the request body.');
     return res.status(400).json({ error: 'UUID is required.' });
   }
 
@@ -21,6 +23,7 @@ export default async (req, res) => {
     const transcriptData = await youtubeTranscriptsCollection.findOne({ uuid });
 
     if (!transcriptData || !transcriptData.transcript) {
+      console.error(`Error: Transcript not found for UUID: ${uuid}`);
       return res.status(404).json({ error: 'Transcript not found for the given UUID.' });
     }
 
@@ -37,7 +40,8 @@ export default async (req, res) => {
 
     return res.status(200).json({ success: true, questions });
   } catch (error) {
-    console.error(error.message);
+    console.error('Error encountered:', error.message);
+    console.error('Error stack trace:', error.stack); // This will give you a detailed stack trace of the error
     res.status(500).json({ error: error.message });
   }
 };
