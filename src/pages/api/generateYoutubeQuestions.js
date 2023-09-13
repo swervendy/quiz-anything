@@ -1,4 +1,3 @@
-/* eslint-disable import/no-anonymous-default-export */
 import { connectToDB } from '../../lib/db';
 import { generateYoutubeTriviaQuestions } from '../../scripts/generate-youtube-questions';
 
@@ -27,11 +26,8 @@ export default async (req, res) => {
 
     const questions = await generateYoutubeTriviaQuestions(transcriptData.transcript);
 
-    const questionsCollection = db.collection('youtubeQuestions');
-
-    // Remove any existing questions for the given UUID
-    await questionsCollection.deleteOne({ uuid });
-
+    const questionsCollection = db.collection('questions');
+   
     // Insert the new questions
     await questionsCollection.insertOne({ 
       uuid, 
