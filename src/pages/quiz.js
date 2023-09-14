@@ -10,21 +10,21 @@ export default function Quiz() {
   const [questionIndex, setQuestionIndex] = useState(0);
   const router = useRouter();
 
-  const [sessionID, setSessionID] = useState(null); // Using sessionID instead of userUUID
-  const [userAnswers, setUserAnswers] = useState([]); // New state variable for storing user's answers
+  const [sessionID, setSessionID] = useState(null);
+  const [userAnswers, setUserAnswers] = useState([]);
 
   useEffect(() => {
     const retrievedUUID = localStorage.getItem('userUUID');
-    const sessionTimestamp = localStorage.getItem('sessionTimestamp'); // Retrieve the session timestamp
-    const combinedUUID = `${retrievedUUID}-${sessionTimestamp}`; // Combine them
-    console.log("Retrieved sessionID:", combinedUUID);  // Log the retrieved sessionID
-    setSessionID(combinedUUID); // Set the combined UUID as sessionID
+    const sessionTimestamp = localStorage.getItem('sessionTimestamp');
+    const combinedUUID = `${retrievedUUID}-${sessionTimestamp}`;
+    console.log("Retrieved sessionID:", combinedUUID);
+    setSessionID(combinedUUID);
 
     async function fetchQuestions() {
       try {
-        const response = await fetch(`/api/getQuestions?uuid=${sessionID}`); // Use sessionID here
+        const response = await fetch(`/api/getQuestions?uuid=${sessionID}`);
         const data = await response.json();
-        console.log("API Response:", data);  // Log the API response
+        console.log("API Response:", data);
 
         if (Array.isArray(data)) {
           setQuestions(data.map(q => ({
@@ -42,13 +42,12 @@ export default function Quiz() {
     if (sessionID) {
       fetchQuestions();
     }
-  }, [sessionID]); // Watch for changes in sessionID
+  }, [sessionID]);
 
   const totalQuestions = questions.length;
   const question = questions[questionIndex];
 
   function handleAnswerClick(answer) {
-    // Update userAnswers state
     setUserAnswers(prev => [...prev, { question: question.question, userAnswer: answer }]);
 
     if (answer === question.answer) {
@@ -56,14 +55,12 @@ export default function Quiz() {
     }
     if (questionIndex + 1 === questions.length) {
       setGameStatus('finished');
-      // Store user's answers in the database when the quiz is finished
       storeUserAnswers();
     } else {
       setQuestionIndex(prev => prev + 1);
     }
   }
 
-  // Function for storing user's answers in the database
   async function storeUserAnswers() {
     try {
       const response = await fetch('/api/storeUserAnswers', {
@@ -78,40 +75,16 @@ export default function Quiz() {
       });
       const data = await response.json();
       console.log('storeUserAnswers response:', data);
+
+      router.push(`/review?sessionID=${sessionID}`);
     } catch (error) {
       console.error('Error storing user answers:', error);
     }
   }
 
-  function tryAgain() {
-    setGameStatus('playing');
-    setScore(0);
-    setQuestionIndex(0);
-  }
-
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">
       <div className="z-10 w-full max-w-xl m-auto items-center justify-between px-8 lg:flex">
-        {gameStatus === 'finished' && (
-          <div className="w-full">
-            <h2 className="text-3xl text-center font-bold mb-4">Here&apos;s how you did!</h2>
-            <p className="text-xl text-center font-bold mb-12">
-              Your score was {score} / {totalQuestions}
-            </p>
-            <div className="flex justify-center space-x-4 mt-6">
-              <button 
-                onClick={tryAgain} 
-                className="flex justify-center items-center w-full h-full text-lg uppercase font-bold hover:text-slate-600 bg-white dark:bg-slate-500 hover:bg-yellow-300 border-4 border-cyan-300 hover:border-yellow-500 py-2 px-4 rounded">
-                Try this quiz again
-              </button>
-              <button 
-                onClick={() => router.push('/')} 
-                className="flex justify-center items-center w-full h-full text-lg uppercase font-bold hover:text-slate-600 bg-white dark:bg-slate-500 hover:bg-yellow-300 border-4 border-cyan-300 hover:border-yellow-500 py-2 px-4 rounded">
-                Create a new quiz
-              </button>
-            </div>
-          </div>
-        )}
         {gameStatus === 'playing' && question && (
           <div className="w-full">
             <h2 className="text-3xl text-center font-bold mb-4">Q: {question.question}</h2>
