@@ -11,6 +11,7 @@ export default function Quiz() {
   const router = useRouter();
 
   const [sessionID, setSessionID] = useState(null); // Using sessionID instead of userUUID
+  const [userAnswers, setUserAnswers] = useState([]); // New state variable for storing user's answers
 
   useEffect(() => {
     const retrievedUUID = localStorage.getItem('userUUID');
@@ -45,6 +46,42 @@ export default function Quiz() {
 
   const totalQuestions = questions.length;
   const question = questions[questionIndex];
+
+  function handleAnswerClick(answer) {
+    // Update userAnswers state
+    setUserAnswers(prev => [...prev, { question: question.question, userAnswer: answer }]);
+
+    if (answer === question.answer) {
+      setScore(prev => prev + 1);
+    }
+    if (questionIndex + 1 === questions.length) {
+      setGameStatus('finished');
+      // Store user's answers in the database when the quiz is finished
+      storeUserAnswers();
+    } else {
+      setQuestionIndex(prev => prev + 1);
+    }
+  }
+
+  // Function for storing user's answers in the database
+  async function storeUserAnswers() {
+    try {
+      const response = await fetch('/api/storeUserAnswers', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          sessionID: sessionID,
+          userAnswers: userAnswers,
+        }),
+      });
+      const data = await response.json();
+      console.log('storeUserAnswers response:', data);
+    } catch (error) {
+      console.error('Error storing user answers:', error);
+    }
+  }
 
   function tryAgain() {
     setGameStatus('playing');
@@ -81,20 +118,9 @@ export default function Quiz() {
             <h3 className="text-xl text-center font-bold mb-12">Score: {score} / {totalQuestions}</h3>
             <ul className="grid grid-cols-2 w-full gap-4">
               {question.answers.map(answer => {
-                function handleOnClick(e) {
-                  e.preventDefault();
-                  if (answer === question.answer) {
-                    setScore(prev => prev + 1);
-                  }
-                  if (questionIndex + 1 === questions.length) {
-                    setGameStatus('finished');
-                  } else {
-                    setQuestionIndex(prev => prev + 1);
-                  }
-                }
                 return (
                   <li key={answer}>
-                    <ButtonAnswer onClick={handleOnClick}>
+                    <ButtonAnswer onClick={() => handleAnswerClick(answer)}>
                       {answer}
                     </ButtonAnswer>
                   </li>
