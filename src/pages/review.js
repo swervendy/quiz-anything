@@ -57,7 +57,7 @@ export default function Review() {
           <p className="mb-2">{item.question}</p>
           <p className="mb-4">Your answer: {item.userAnswer}</p>
           <button 
-            onClick={() => router.push(`/tutor?question=${encodeURIComponent(item.question)}&answer=${encodeURIComponent(item.userAnswer)}`)} 
+            onClick={() => router.push('/tutor')} 
             className="flex justify-center items-center w-full h-full text-lg uppercase font-bold hover:text-slate-600 bg-white dark:bg-slate-500 hover:bg-yellow-300 border-4 border-cyan-300 hover:border-yellow-500 py-2 px-6 rounded">
             Chat with a Tutor
           </button>
