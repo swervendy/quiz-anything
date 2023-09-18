@@ -128,9 +128,9 @@ function Index() {
 };
 
 return (
-  <main className="flex min-h-screen flex-col items-center justify-start pt-20">
-    <h1 className="text-4xl font-bold mb-3">Quiz Anything</h1>
-    <p className="text-xl mb-6">Make a quiz about any topic, YouTube video, or URL</p>
+  <main className="flex min-h-screen flex-col items-center justify-start pt-40 px-8 lg:px-40">
+    <h1 className="text-4xl font-bold mb-3 text-center">Quiz Anything</h1>
+    <p className="text-xl mb-6 text-center">Make a quiz about any topic, YouTube video, or URL</p>
     <div className="tabs mb-4">
     <div className="tabs mb-4 flex flex-wrap">
     <button 
@@ -176,7 +176,7 @@ return (
 </button>
     </div>
             </div>
-            <div className="z-10 w-full max-w-xl m-auto items-center justify-between px-8 lg:flex">
+            <div className="z-10 w-full max-w-xl m-auto items-center justify-between px-7 lg:flex">
               <form onSubmit={handleSubmit} className="w-full">
                 {tab === 'topic' ? (
                   <input
