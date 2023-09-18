@@ -2,57 +2,44 @@ import { useToast } from '@apideck/components'
 import { ChatCompletionRequestMessage } from 'openai'
 import { ReactNode, createContext, useContext, useEffect, useState } from 'react'
 import { sendMessage } from './sendMessage'
+import { useRouter } from 'next/router';
+import OpenAI from 'openai';
 
 interface ContextProps {
   messages: ChatCompletionRequestMessage[]
   addMessage: (content: string) => Promise<void>
   isLoadingAnswer: boolean
-  updateUserAnswers: (answers: any[]) => void
-}
-
-interface MessagesProviderProps {
-  children: ReactNode
-  sessionID: string
 }
 
 const ChatsContext = createContext<Partial<ContextProps>>({})
 
-export function MessagesProvider({ children, sessionID }: MessagesProviderProps) {
+export function MessagesProvider({ children }: { children: ReactNode }) {
   const { addToast } = useToast()
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([])
   const [isLoadingAnswer, setIsLoadingAnswer] = useState(false)
-  const [userAnswers, setUserAnswers] = useState([]);
-
-  const updateUserAnswers = (answers) => {
-    setUserAnswers(answers);
-  }
+  const router = useRouter();
+  const { question, answer } = router.query;
+  const [message, setMessage] = useState('');
 
   useEffect(() => {
-    async function fetchUserAnswers() {
-      if (sessionID) {
-        const response = await fetch(`/api/getUserAnswers?sessionID=${sessionID}`);
-        const data = await response.json();
-
-        // Update the user's answers in the context
-        updateUserAnswers(data.userAnswers);
-
-        const lastAnswer = data.userAnswers[data.userAnswers.length - 1];
-
-        // Initialize the chat with the welcome message
-        const systemMessage: ChatCompletionRequestMessage = {
-          role: 'system',
-          content: 'You are a hyper-intelligent Nigerian educational tutor, designed to help students study for materials they complete quizzes on.'
-        }
-        const welcomeMessage: ChatCompletionRequestMessage = {
-          role: 'assistant',
-          content: `You answered the question "${lastAnswer.question}" with "${lastAnswer.userAnswer}". This is ${lastAnswer.isCorrect ? 'correct' : 'incorrect'}. I'm your tutor, here to help you. Can you tell me how you got your answer?`
-        }
-        setMessages([systemMessage, welcomeMessage])
+    const initializeChat = () => {
+      const systemMessage: ChatCompletionRequestMessage = {
+        role: 'system',
+        content: 'You are ChatGPT, a large language model trained by OpenAI, acting as a Nigerian tutor to educate Nigerian students.'
       }
+      const welcomeMessage: ChatCompletionRequestMessage = {
+        role: 'assistant',
+        content: `You answered "${answer}" to the question "${question}" I'm your tutor, here to help you! How did you arrive at this answer?`
+      }
+      setMessages([systemMessage, welcomeMessage])
     }
-
-    fetchUserAnswers();
-  }, [sessionID]);
+  
+    // When no messages are present and router.query has question and answer, we initialize the chat the system message and the welcome message
+    // We hide the system message from the user in the UI
+    if (!messages?.length && question && answer) {
+      initializeChat()
+    }
+  }, [messages?.length, setMessages, question, answer])
 
   const addMessage = async (content: string) => {
     setIsLoadingAnswer(true)
@@ -63,13 +50,16 @@ export function MessagesProvider({ children, sessionID }: MessagesProviderProps)
       }
       const newMessages = [...messages, newMessage]
 
+      // Add the user message to the state so we can see it immediately
       setMessages(newMessages)
 
       const { data } = await sendMessage(newMessages)
       const reply = data.choices[0].message
 
+      // Add the assistant message to the state
       setMessages([...newMessages, reply])
     } catch (error) {
+      // Show error when something goes wrong
       addToast({ title: 'An error occurred', type: 'error' })
     } finally {
       setIsLoadingAnswer(false)
@@ -77,7 +67,7 @@ export function MessagesProvider({ children, sessionID }: MessagesProviderProps)
   }
 
   return (
-    <ChatsContext.Provider value={{ messages, addMessage, isLoadingAnswer, updateUserAnswers }}>
+    <ChatsContext.Provider value={{ messages, addMessage, isLoadingAnswer }}>
       {children}
     </ChatsContext.Provider>
   )
