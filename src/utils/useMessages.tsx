@@ -1,12 +1,11 @@
 import { useToast } from '@apideck/components'
-import { ChatCompletionRequestMessage } from 'openai'
+import OpenAI from 'openai'
 import { ReactNode, createContext, useContext, useEffect, useState } from 'react'
 import { sendMessage } from './sendMessage'
 import { useRouter } from 'next/router';
-import OpenAI from 'openai';
 
 interface ContextProps {
-  messages: ChatCompletionRequestMessage[]
+  messages: OpenAI.Chat.CreateChatCompletionRequestMessage[]
   addMessage: (content: string) => Promise<void>
   isLoadingAnswer: boolean
 }
@@ -15,7 +14,7 @@ const ChatsContext = createContext<Partial<ContextProps>>({})
 
 export function MessagesProvider({ children }: { children: ReactNode }) {
   const { addToast } = useToast()
-  const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([])
+  const [messages, setMessages] = useState<OpenAI.Chat.CreateChatCompletionRequestMessage[]>([])
   const [isLoadingAnswer, setIsLoadingAnswer] = useState(false)
   const router = useRouter();
   const { question, answer } = router.query;
@@ -23,11 +22,11 @@ export function MessagesProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const initializeChat = () => {
-      const systemMessage: ChatCompletionRequestMessage = {
+      const systemMessage: OpenAI.Chat.CreateChatCompletionRequestMessage = {
         role: 'system',
         content: 'You are ChatGPT, a large language model trained by OpenAI, acting as a Nigerian tutor to educate Nigerian students.'
       }
-      const welcomeMessage: ChatCompletionRequestMessage = {
+      const welcomeMessage: OpenAI.Chat.CreateChatCompletionRequestMessage = {
         role: 'assistant',
         content: `You answered "${answer}" to the question "${question}" I'm your tutor, here to help you! How did you arrive at this answer?`
       }
@@ -44,7 +43,7 @@ export function MessagesProvider({ children }: { children: ReactNode }) {
   const addMessage = async (content: string) => {
     setIsLoadingAnswer(true)
     try {
-      const newMessage: ChatCompletionRequestMessage = {
+      const newMessage: OpenAI.Chat.CreateChatCompletionRequestMessage = {
         role: 'user',
         content
       }
