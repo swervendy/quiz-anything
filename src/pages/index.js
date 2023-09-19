@@ -135,7 +135,7 @@ return (
     <div className="tabs mb-4 flex flex-wrap">
     <button 
   onClick={() => setTab('topic')}
-  className={`px-4 py-2 mr-4 rounded flex items-center justify-between ${tab === 'topic' ? 'bg-white dark:bg-gray-400 text-black dark:text-white border border-indigo-500 shadow-md' : 'bg-gray-100 dark:bg-gray-800 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-800 hover:text-black dark:hover:text-gray-500 hover:border hover:border-indigo-500 cursor-pointer'}`}
+  className={`px-4 py-2 mr-4 rounded flex items-center justify-between ${tab === 'topic' ? 'bg-white dark:bg-gray-00 text-black dark:text-white border border-indigo-500 shadow-md' : 'bg-gray-100 dark:bg-gray-800 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-800 hover:text-black dark:hover:text-gray-500 hover:border hover:border-indigo-500 cursor-pointer'}`}
     >
   <span className="font-medium">Topic</span>
   {tab === 'topic' && (
@@ -176,7 +176,7 @@ return (
 </button>
     </div>
             </div>
-            <div className="z-10 w-full max-w-xl m-auto items-center justify-between px-7 lg:flex">
+            <div className="z-10 w-full max-w-xl m-auto items-center justify-between px-2 lg:flex">
               <form onSubmit={handleSubmit} className="w-full">
                 {tab === 'topic' ? (
                   <input
